@@ -9,7 +9,6 @@ handlers:
 
   - url: /result
     script: rest.py
-    methods: [POST]
 
   - url: /stock/.*
     script: rest.py

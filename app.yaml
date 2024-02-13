@@ -1,5 +1,3 @@
-application: main
-version: 1
 runtime: python39
 api_version: 1
 

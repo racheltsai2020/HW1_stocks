@@ -1,13 +1,12 @@
 version: 2.1
 
-
 orbs:
   python: circleci/python@2.1.1
 
 jobs:
   build-and-test:
     docker:
-      - image: c/python:3.12
+      - image: cimg/python:3.12
 
     steps:
       - checkout
@@ -18,7 +17,6 @@ jobs:
           command: pytest
 
 workflows:
-  sample: 
     jobs:
       - build-and-test
 

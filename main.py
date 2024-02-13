@@ -1,8 +1,9 @@
+import bottle
 from bottle import *
 from pprint import pprint
 import yfinance as yf
 
-bottle= Bottle()
+app = bottle.default_app()
 
 @bottle.route('/')
 def home():

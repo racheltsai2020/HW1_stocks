@@ -1,21 +1,13 @@
+application: main
+version: 1
 runtime: python39
+api_version: 1
 
 handlers:
 
   - url: /static
     static_dir: static
   
-  - url: /
-    script: auto
+  - url: /.*
+    script: main.py
 
-  - url: /result
-    script: rest.py
-
-  - url: /stock/.*
-    script: rest.py
-
-  - url: /top
-    script: rest.py
-
-env_variables:
-  ENVIRONMENT: 'production'

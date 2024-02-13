@@ -2,8 +2,9 @@ from bottle import *
 from pprint import pprint
 import yfinance as yf
 
+bottle= Bottle()
 
-@route('/')
+@bottle.route('/')
 def home():
     return '''
         <p> Welcome! Please enter the Stock Symbol of the Stock you want to look up! </p>
@@ -15,7 +16,7 @@ def home():
         <a href="/top"><button>Top 5 Company Stocks</button></a>
     '''
 
-@route('/result', method='POST')
+@bottle.route('/result', method='POST')
 def result():
     sym = request.forms.get('sym')
     if sym:
@@ -30,7 +31,7 @@ def result():
             <a href="/"><button>Go Back</button></a>
         ''')
 
-@route('/stock/<ticker>')
+@bottle.route('/stock/<ticker>')
 def stock(ticker):
    try:
        ticker = yf.Ticker(ticker).info
@@ -49,7 +50,7 @@ def stock(ticker):
           <a href="/"><button>Go back to home</button></a>
        ''')
 
-@route('/top')
+@bottle.route('/top')
 def pop():
     pop_stock = ["MSFT","AAPL","GOOGL","AMZN","NVDA"]
     list = ["Top 5 Company Stocks:\n\n"]
@@ -66,6 +67,6 @@ def pop():
     return list
 
 
-if __name__ == '__main__':
+#if __name__ == '__main__':
 
-    run(host='0.0.0.0', port='8080')
+    #run(host='0.0.0.0', port='8080')

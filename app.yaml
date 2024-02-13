@@ -8,13 +8,13 @@ handlers:
     script: auto
 
   - url: /result
-    script: rest.py
+    script: main.py
 
   - url: /stock/.*
-    script: rest.py
+    script: main.py
 
   - url: /top
-    script: rest.py
+    script: main.py
 
 env_variables:
   ENVIRONMENT: 'production'
